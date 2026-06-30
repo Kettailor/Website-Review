@@ -1,5 +1,24 @@
 import type { Metadata, Viewport } from "next";
+import { Outfit, Inter } from "next/font/google";
+import { AppProvider } from "./components/providers";
+import { ToastContainer } from "./components/toast";
+import { BehaviorTracker } from "./components/behavior-tracker";
+import { CartDrawer } from "./components/cart-drawer";
+import { Chatbot } from "./components/chatbot";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap"
+});
+
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-inter",
+  display: "swap"
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ubpet-c41-review.vercel.app";
 
@@ -51,8 +70,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" data-lang="vi" data-theme="light" suppressHydrationWarning>
-      <body>{children}</body>
+    <html lang="vi" data-lang="vi" data-theme="light" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="antialiased">
+        <AppProvider>
+          {children}
+          <CartDrawer />
+          <Chatbot />
+          <ToastContainer />
+          <BehaviorTracker />
+        </AppProvider>
+      </body>
     </html>
   );
 }

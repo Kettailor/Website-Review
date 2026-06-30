@@ -1,6 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { NewsletterForm } from "./components/newsletter-form";
 import { SiteControls } from "./components/site-controls";
+import { Scrollytelling } from "./components/scrollytelling";
+import { ProductCard } from "./components/product-card";
+import { ProductDetailModal } from "./components/product-detail-modal";
+import { PRODUCTS, Product } from "./data/products";
+import { useApp } from "./components/providers";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ubpet-c41-review.vercel.app";
 
@@ -208,8 +216,32 @@ const structuredData = {
 };
 
 export default function Home() {
+  const { lang, recentlyViewed } = useApp();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  // Sync scroll progress indicator bar width
+  useEffect(() => {
+    const handleScrollProgress = () => {
+      const progressBar = document.querySelector(".scroll-progress-bar") as HTMLDivElement;
+      if (!progressBar) return;
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight <= 0) return;
+
+      const scrollPercentage = (scrollTop / docHeight) * 100;
+      progressBar.style.width = `${scrollPercentage}%`;
+    };
+
+    window.addEventListener("scroll", handleScrollProgress);
+    return () => window.removeEventListener("scroll", handleScrollProgress);
+  }, []);
+
   return (
     <main>
+      {/* Scroll Progress Bar */}
+      <div className="scroll-progress-bar" />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -221,6 +253,8 @@ export default function Home() {
         </a>
         <nav className="nav-links" aria-label="Page sections">
           <a href="#verdict"><Text vi="Kết luận" en="Verdict" /></a>
+          <a href="#operation-story"><Text vi="Vận hành" en="Operation" /></a>
+          <a href="#products-section"><Text vi="Cửa hàng" en="Shop" /></a>
           <a href="#video">Video</a>
           <a href="#specs"><Text vi="Thông số" en="Specs" /></a>
           <a href="#register"><Text vi="Tư vấn" en="Advice" /></a>
@@ -228,16 +262,19 @@ export default function Home() {
         <SiteControls />
       </header>
 
+      {/* Hero Section with custom Typography animations */}
       <section id="top" className="hero eco-hero">
         <div className="hero-copy reveal">
           <p className="kicker">
             <Text vi="Review máy dọn vệ sinh mèo tự động" en="Automatic cat litter box review" />
           </p>
-          <h1>
+          <h1 className="motion-typography-title">
             UBPet C41
-            <span><Text vi="có đáng mua?" en="worth buying?" /></span>
+            <span className="motion-text-gradient">
+              <Text vi="có đáng mua?" en="worth buying?" />
+            </span>
           </h1>
-          <p>
+          <p className="lead-paragraph">
             <Text
               vi="Một bản review sáng, thực tế và dễ so sánh dựa trên thông số Helipet, video vận hành ngay trong trang và các tiêu chí thường gặp khi đánh giá máy dọn vệ sinh tự động: an toàn, mùi, loại cát, app và khả năng mèo chịu dùng."
               en="A bright, practical review based on Helipet specs, an inline operating video, and the criteria that matter for automatic litter boxes: safety, odor, litter type, app tracking and cat adoption."
@@ -248,8 +285,8 @@ export default function Home() {
               <Text vi="Xem kết luận" en="Read verdict" />
               <span aria-hidden="true">-&gt;</span>
             </a>
-            <a className="button button-secondary" href="#video">
-              <Text vi="Xem video" en="Watch video" />
+            <a className="button button-secondary" href="#products-section">
+              <Text vi="Mua phụ kiện" en="Shop accessories" />
             </a>
           </div>
           <dl className="hero-stats" aria-label="Quick facts">
@@ -293,6 +330,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Infinite scrolling marquee track */}
       <section className="review-marquee" aria-label="Review highlights">
         <span><Text vi="Cảm biến nhiều lớp" en="Layered sensors" /></span>
         <span><Text vi="Không gian mát xanh" en="Cool eco space" /></span>
@@ -300,6 +338,7 @@ export default function Home() {
         <span><Text vi="Sáng/tối + VI/EN" en="Light/dark + VI/EN" /></span>
       </section>
 
+      {/* Verdict grid */}
       <section id="verdict" className="section verdict-section">
         <div className="section-heading reveal">
           <p className="kicker"><Text vi="Kết luận nhanh" en="Quick verdict" /></p>
@@ -331,6 +370,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Editorial score cards */}
       <section className="section score-section">
         <div className="score-header reveal">
           <p className="kicker"><Text vi="Chấm điểm biên tập" en="Editorial scorecard" /></p>
@@ -349,6 +389,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Scrollytelling Narrative Loop */}
+      <section id="operation-story" className="section-scrollytelling-outer">
+        <Scrollytelling />
+      </section>
+
+      {/* Video review */}
       <section id="video" className="section video-section">
         <div className="video-card reveal">
           <iframe
@@ -380,6 +426,75 @@ export default function Home() {
         </div>
       </section>
 
+      {/* E-Commerce Catalog Section */}
+      <section id="products-section" className="section products-section">
+        <div className="section-heading compact reveal">
+          <p className="kicker"><Text vi="Sản phẩm & Phụ kiện" en="Products & Accessories" /></p>
+          <h2>
+            <Text
+              vi="Sản phẩm chính và phụ kiện khuyên dùng cho UBPet C41"
+              en="Featured product and recommended accessories for UBPet C41"
+            />
+          </h2>
+          <p>
+            <Text
+              vi="Đặt mua máy dọn vệ sinh mèo hoặc trang bị thêm các phụ kiện tương thích hoàn toàn để tối ưu hóa việc vận hành và khử mùi."
+              en="Buy the smart litter box or pick up custom-fit accessories to optimize odor control and overall operation."
+            />
+          </p>
+        </div>
+
+        <div className="products-grid">
+          {PRODUCTS.map((prod) => (
+            <ProductCard 
+              key={prod.id} 
+              product={prod} 
+              onViewDetails={(p) => setSelectedProduct(p)} 
+            />
+          ))}
+        </div>
+
+        {/* Recently Viewed Panel */}
+        {recentlyViewed.length > 0 && (
+          <div className="recently-viewed-wrap reveal" style={{ marginTop: "4rem" }}>
+            <h3 style={{ fontSize: "1.2rem", fontWeight: 850, marginBottom: "1.25rem" }}>
+              <Text vi="Sản phẩm bạn vừa xem" en="Recently viewed items" />
+            </h3>
+            <div className="products-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1rem" }}>
+              {recentlyViewed
+                .map((id) => PRODUCTS.find((p) => p.id === id))
+                .filter((p): p is Product => !!p)
+                .map((prod) => (
+                  <article key={`recent-${prod.id}`} className="product-card" style={{ padding: "0.5rem" }}>
+                    <div className="product-card-image-wrap" style={{ aspectRatio: 1.3, margin: "4px" }}>
+                      <img src={prod.image} alt={lang === "vi" ? prod.nameVi : prod.nameEn} style={{ maxHeight: "75%", maxWidth: "75%" }} />
+                    </div>
+                    <div style={{ padding: "0.5rem" }}>
+                      <h4 style={{ fontSize: "0.88rem", margin: "0 0 0.25rem", fontWeight: 800 }}>
+                        {lang === "vi" ? prod.nameVi : prod.nameEn}
+                      </h4>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontSize: "0.85rem", color: "var(--clay)", fontWeight: 900 }}>
+                          {lang === "vi" ? `${prod.price.toLocaleString("vi-VN")}đ` : `$${(prod.price / 25000).toFixed(2)}`}
+                        </span>
+                        <button 
+                          type="button" 
+                          className="button button-secondary" 
+                          style={{ minHeight: "28px", padding: "0.2rem 0.6rem", fontSize: "0.72rem" }}
+                          onClick={() => setSelectedProduct(prod)}
+                        >
+                          <Text vi="Xem" en="View" />
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* Review signals */}
       <section className="section signals-section">
         <div className="section-heading reveal">
           <p className="kicker"><Text vi="Tổng hợp đánh giá trên web" en="Review signals across the web" /></p>
@@ -406,6 +521,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Figure gallery */}
       <section className="section gallery-section" aria-label="Product gallery">
         {gallery.map((item) => (
           <figure className="gallery-item reveal" key={item.src}>
@@ -421,6 +537,7 @@ export default function Home() {
         ))}
       </section>
 
+      {/* Specs section */}
       <section id="specs" className="section specs-section">
         <div className="section-heading compact reveal">
           <p className="kicker"><Text vi="Thông số kỹ thuật" en="Technical specs" /></p>
@@ -442,6 +559,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter signup & checklist request */}
       <section id="register" className="section register-section">
         <div className="register-copy reveal">
           <p className="kicker"><Text vi="Checklist trước khi mua" en="Pre-buy checklist" /></p>
@@ -460,6 +578,14 @@ export default function Home() {
         </div>
         <NewsletterForm />
       </section>
+
+      {/* Product Detail Modal Renderer */}
+      {selectedProduct && (
+        <ProductDetailModal 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+        />
+      )}
     </main>
   );
 }
