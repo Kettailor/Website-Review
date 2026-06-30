@@ -1,44 +1,44 @@
 :root {
-  --bg: #edf8f3;
+  --bg: #faf6f0;
   --surface: #ffffff;
-  --surface-soft: #e6f5ee;
-  --ink: #14201c;
-  --muted: #66726d;
-  --line: rgba(20, 32, 28, 0.12);
-  --mint: #4bbf91;
-  --teal: #087f7c;
-  --clay: #d8704a;
-  --sky: #5ea9d7;
-  --plum: #7a5ba8;
-  --gold: #e2a832;
-  --shadow: 0 28px 70px rgba(26, 45, 38, 0.14);
-  --card: rgba(255, 255, 255, 0.84);
-  --header: rgba(255, 255, 255, 0.76);
-  --glass: rgba(255, 255, 255, 0.68);
-  --field: rgba(255, 255, 255, 0.94);
-  --section-blue: #e9f5f7;
-  --section-warm: #f9fbf6;
-  --radius: 8px;
+  --surface-soft: #f2ebe1;
+  --ink: #2e2925;
+  --muted: #7a7067;
+  --line: rgba(46, 41, 37, 0.08);
+  --mint: #a2c8b8;
+  --teal: #5f8c7b;
+  --clay: #deb5a7;
+  --sky: #b8cbd1;
+  --plum: #ccb9c2;
+  --gold: #e3cca1;
+  --shadow: 0 24px 60px rgba(46, 41, 37, 0.06);
+  --card: rgba(255, 255, 255, 0.88);
+  --header: rgba(255, 255, 255, 0.78);
+  --glass: rgba(255, 255, 255, 0.72);
+  --field: rgba(255, 255, 255, 0.96);
+  --section-blue: #f0f3f5;
+  --section-warm: #faf5ee;
+  --radius: 10px;
 }
 
 html[data-theme="dark"] {
-  --bg: #071512;
-  --surface: #10211d;
-  --surface-soft: #0d2420;
-  --ink: #effff8;
-  --muted: #aec9c0;
-  --line: rgba(221, 255, 241, 0.14);
-  --mint: #6ee7b7;
-  --teal: #58d4cc;
-  --clay: #ff9d73;
-  --sky: #7cc7f1;
-  --shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
-  --card: rgba(15, 38, 32, 0.86);
-  --header: rgba(9, 24, 20, 0.82);
-  --glass: rgba(13, 35, 30, 0.72);
-  --field: rgba(235, 255, 248, 0.92);
-  --section-blue: #0b1e21;
-  --section-warm: #0a1916;
+  --bg: #1a1614;
+  --surface: #231f1c;
+  --surface-soft: #2b2623;
+  --ink: #f7f4f0;
+  --muted: #a69a90;
+  --line: rgba(247, 244, 240, 0.09);
+  --mint: #b9dcce;
+  --teal: #7ea796;
+  --clay: #eec7bc;
+  --sky: #c9dbe0;
+  --shadow: 0 28px 75px rgba(0, 0, 0, 0.28);
+  --card: rgba(35, 31, 28, 0.88);
+  --header: rgba(26, 22, 20, 0.82);
+  --glass: rgba(35, 31, 28, 0.74);
+  --field: rgba(247, 244, 240, 0.94);
+  --section-blue: #1a2021;
+  --section-warm: #211d1a;
 }
 
 * {
@@ -57,9 +57,9 @@ html[data-theme="dark"] {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 78% 12%, rgba(94, 169, 215, 0.2), transparent 28rem),
-    radial-gradient(circle at 9% 26%, rgba(75, 191, 145, 0.18), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 34rem),
+    radial-gradient(circle at 78% 12%, rgba(184, 203, 209, 0.22), transparent 28rem),
+    radial-gradient(circle at 9% 26%, rgba(162, 200, 184, 0.22), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), transparent 34rem),
     var(--bg);
   color: var(--ink);
   font-family:
@@ -74,9 +74,9 @@ body {
 
 html[data-theme="dark"] body {
   background:
-    radial-gradient(circle at 78% 12%, rgba(94, 169, 215, 0.22), transparent 30rem),
-    radial-gradient(circle at 9% 26%, rgba(75, 191, 145, 0.18), transparent 24rem),
-    linear-gradient(180deg, rgba(9, 33, 27, 0.9), transparent 34rem),
+    radial-gradient(circle at 78% 12%, rgba(184, 203, 209, 0.1), transparent 30rem),
+    radial-gradient(circle at 9% 26%, rgba(162, 200, 184, 0.1), transparent 24rem),
+    linear-gradient(180deg, rgba(35, 30, 26, 0.8), transparent 34rem),
     var(--bg);
 }
 
@@ -478,7 +478,7 @@ html[data-theme="dark"] .hero-product {
 }
 
 .review-marquee {
-  background: linear-gradient(90deg, #12342b, #0a6f6d);
+  background: linear-gradient(90deg, var(--teal), var(--mint));
   color: #ffffff;
   display: flex;
   gap: 1px;
@@ -486,7 +486,7 @@ html[data-theme="dark"] .hero-product {
 }
 
 html[data-theme="dark"] .review-marquee {
-  background: linear-gradient(90deg, #06110f, #0d3f3b);
+  background: linear-gradient(90deg, #2b3531, #1e2623);
 }
 
 .review-marquee span {
