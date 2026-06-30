@@ -1,44 +1,44 @@
 :root {
-  --bg: #faf6f0;
+  --bg: #f5f3ef;
   --surface: #ffffff;
-  --surface-soft: #f2ebe1;
-  --ink: #2e2925;
-  --muted: #7a7067;
-  --line: rgba(46, 41, 37, 0.08);
-  --mint: #a2c8b8;
-  --teal: #5f8c7b;
-  --clay: #deb5a7;
-  --sky: #b8cbd1;
-  --plum: #ccb9c2;
-  --gold: #e3cca1;
-  --shadow: 0 24px 60px rgba(46, 41, 37, 0.06);
-  --card: rgba(255, 255, 255, 0.88);
-  --header: rgba(255, 255, 255, 0.78);
+  --surface-soft: #eae6df;
+  --ink: #1c1e21;
+  --muted: #6b7278;
+  --line: rgba(28, 30, 33, 0.08);
+  --mint: #d4af37;
+  --teal: #8a9597;
+  --clay: #c5a880;
+  --sky: #a3b899;
+  --plum: #a29bfe;
+  --gold: #e5c158;
+  --shadow: 0 24px 64px rgba(28, 30, 33, 0.06);
+  --card: rgba(255, 255, 255, 0.9);
+  --header: rgba(255, 255, 255, 0.8);
   --glass: rgba(255, 255, 255, 0.72);
   --field: rgba(255, 255, 255, 0.96);
-  --section-blue: #f0f3f5;
-  --section-warm: #faf5ee;
+  --section-blue: #edf1f2;
+  --section-warm: #faf8f5;
   --radius: 10px;
 }
 
 html[data-theme="dark"] {
-  --bg: #1a1614;
-  --surface: #231f1c;
-  --surface-soft: #2b2623;
-  --ink: #f7f4f0;
-  --muted: #a69a90;
-  --line: rgba(247, 244, 240, 0.09);
-  --mint: #b9dcce;
-  --teal: #7ea796;
-  --clay: #eec7bc;
-  --sky: #c9dbe0;
-  --shadow: 0 28px 75px rgba(0, 0, 0, 0.28);
-  --card: rgba(35, 31, 28, 0.88);
-  --header: rgba(26, 22, 20, 0.82);
-  --glass: rgba(35, 31, 28, 0.74);
-  --field: rgba(247, 244, 240, 0.94);
-  --section-blue: #1a2021;
-  --section-warm: #211d1a;
+  --bg: #121416;
+  --surface: #1a1d20;
+  --surface-soft: #22262a;
+  --ink: #eaeaea;
+  --muted: #9da5ab;
+  --line: rgba(234, 234, 234, 0.08);
+  --mint: #f3e5ab;
+  --teal: #d4af37;
+  --clay: #e5c158;
+  --sky: #a3b899;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  --card: rgba(26, 29, 32, 0.88);
+  --header: rgba(18, 20, 22, 0.82);
+  --glass: rgba(26, 29, 32, 0.74);
+  --field: rgba(234, 234, 234, 0.94);
+  --section-blue: #151b1e;
+  --section-warm: #181b1d;
 }
 
 * {
@@ -57,9 +57,9 @@ html[data-theme="dark"] {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 78% 12%, rgba(184, 203, 209, 0.22), transparent 28rem),
-    radial-gradient(circle at 9% 26%, rgba(162, 200, 184, 0.22), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), transparent 34rem),
+    radial-gradient(circle at 78% 12%, rgba(163, 184, 153, 0.16), transparent 28rem),
+    radial-gradient(circle at 9% 26%, rgba(212, 175, 55, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.85), transparent 34rem),
     var(--bg);
   color: var(--ink);
   font-family:
@@ -74,9 +74,9 @@ body {
 
 html[data-theme="dark"] body {
   background:
-    radial-gradient(circle at 78% 12%, rgba(184, 203, 209, 0.1), transparent 30rem),
-    radial-gradient(circle at 9% 26%, rgba(162, 200, 184, 0.1), transparent 24rem),
-    linear-gradient(180deg, rgba(35, 30, 26, 0.8), transparent 34rem),
+    radial-gradient(circle at 78% 12%, rgba(163, 184, 153, 0.08), transparent 30rem),
+    radial-gradient(circle at 9% 26%, rgba(212, 175, 55, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(18, 20, 22, 0.95), transparent 34rem),
     var(--bg);
 }
 
@@ -486,7 +486,7 @@ html[data-theme="dark"] .hero-product {
 }
 
 html[data-theme="dark"] .review-marquee {
-  background: linear-gradient(90deg, #2b3531, #1e2623);
+  background: linear-gradient(90deg, #22262a, #1a1d20);
 }
 
 .review-marquee span {
