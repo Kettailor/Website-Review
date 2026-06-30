@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
   const email = body.email?.trim().toLowerCase();
   const name = body.name?.trim() || "Khách quan tâm";
-  const interest = body.interest?.trim() || "launch";
+  const interest = body.interest?.trim() || "checklist";
 
   if (!email || !emailPattern.test(email)) {
     return NextResponse.json(
@@ -32,11 +32,11 @@ export async function POST(request: Request) {
   }
 
   const lead = {
-    product: "NovaSync One",
+    product: "UBPet C41 review",
     name,
     email,
     interest,
-    source: "landing-page",
+    source: "ubpet-c41-review-page",
     createdAt: new Date().toISOString()
   };
 
@@ -65,8 +65,8 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     message: webhookUrl
-      ? "Đã gửi đăng ký đến hệ thống của NovaSync."
-      : "Đã ghi nhận đăng ký. Cấu hình webhook để đồng bộ ra hệ thống bên ngoài.",
+      ? "Đã gửi yêu cầu tư vấn đến hệ thống."
+      : "Đã ghi nhận yêu cầu. Cấu hình webhook để đồng bộ ra hệ thống bên ngoài.",
     leadId: crypto.randomUUID()
   });
 }

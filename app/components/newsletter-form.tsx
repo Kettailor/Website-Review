@@ -19,7 +19,7 @@ export function NewsletterForm() {
     const payload = {
       name: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      interest: String(formData.get("interest") ?? "launch")
+      interest: String(formData.get("interest") ?? "checklist")
     };
 
     try {
@@ -34,11 +34,11 @@ export function NewsletterForm() {
       const result = (await response.json()) as { message?: string };
 
       if (!response.ok) {
-        throw new Error(result.message ?? "Không thể gửi đăng ký lúc này.");
+        throw new Error(result.message ?? "Không thể gửi thông tin lúc này.");
       }
 
       setState("success");
-      setMessage(result.message ?? "Đã ghi nhận đăng ký của bạn.");
+      setMessage(result.message ?? "Đã ghi nhận yêu cầu tư vấn của bạn.");
       form.reset();
     } catch (error) {
       setState("error");
@@ -54,7 +54,7 @@ export function NewsletterForm() {
     <form className="newsletter-form reveal" onSubmit={handleSubmit}>
       <label>
         Họ và tên
-        <input name="name" type="text" placeholder="Nguyen Minh Anh" autoComplete="name" />
+        <input name="name" type="text" placeholder="Nguyễn Minh Anh" autoComplete="name" />
       </label>
       <label>
         Email
@@ -67,19 +67,19 @@ export function NewsletterForm() {
         />
       </label>
       <label>
-        Nhu cầu quan tâm
-        <select name="interest" defaultValue="launch">
-          <option value="launch">Nhận tin mở bán</option>
-          <option value="demo">Đăng ký demo doanh nghiệp</option>
-          <option value="integration">Tư vấn tích hợp dữ liệu</option>
+        Bạn cần gì?
+        <select name="interest" defaultValue="checklist">
+          <option value="checklist">Nhận checklist trước khi mua</option>
+          <option value="compare">So sánh với máy khác</option>
+          <option value="setup">Tư vấn đặt máy và loại cát</option>
         </select>
       </label>
       <button className="button button-primary form-button" type="submit" disabled={state === "loading"}>
-        {state === "loading" ? "Đang gửi..." : "Gửi đăng ký"}
+        {state === "loading" ? "Đang gửi..." : "Gửi yêu cầu"}
         <span aria-hidden="true">-&gt;</span>
       </button>
       <p className={`form-message ${state}`} role="status" aria-live="polite">
-        {message || "Thông tin chỉ dùng để gửi cập nhật về NovaSync One."}
+        {message || "Thông tin chỉ dùng để gửi checklist và tư vấn liên quan UBPet C41."}
       </p>
     </form>
   );

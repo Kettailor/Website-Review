@@ -5,7 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 31536000
+    minimumCacheTTL: 31536000,
+    qualities: [75, 80, 82]
   }
 };
 

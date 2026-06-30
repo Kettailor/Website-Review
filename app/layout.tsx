@@ -1,28 +1,28 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://novasync-one.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ubpet-c41-review.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "NovaSync One - Trung tâm điều khiển nhà thông minh AI",
-    template: "%s | NovaSync One"
+    default: "Review máy dọn vệ sinh mèo UBPet C41",
+    template: "%s | UBPet C41 Review"
   },
   description:
-    "NovaSync One là thiết bị trung tâm nhà thông minh ứng dụng AI, kết nối Matter, bảo mật edge AI và đồng bộ dữ liệu với các nền tảng bên ngoài.",
+    "Review máy dọn vệ sinh mèo UBPet C41: giá, cabin 106L, cửa 20cm, cảm biến an toàn, app UBPET-ASIA, video review và checklist trước khi mua.",
   openGraph: {
-    title: "NovaSync One - Smart Home Hub AI",
+    title: "Review máy dọn vệ sinh mèo UBPet C41",
     description:
-      "Điều khiển nhà thông minh, tối ưu năng lượng và kết nối dữ liệu bên ngoài trong một thiết bị AI nhỏ gọn.",
+      "Đánh giá UBPet C41 dựa trên thông số Helipet, video liên quan và tiêu chí review máy dọn vệ sinh tự động trên web.",
     url: siteUrl,
-    siteName: "NovaSync One",
+    siteName: "UBPet C41 Review",
     images: [
       {
-        url: "/images/nova-sync-one.png",
-        width: 1792,
-        height: 1024,
-        alt: "NovaSync One smart home hub"
+        url: "/images/ubpet-c41/ubpet-c41-hero.png",
+        width: 840,
+        height: 840,
+        alt: "Máy dọn vệ sinh mèo UBPet C41"
       }
     ],
     locale: "vi_VN",
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NovaSync One - Smart Home Hub AI",
+    title: "Review máy dọn vệ sinh mèo UBPet C41",
     description:
-      "Trung tâm điều khiển nhà thông minh với AI cục bộ, Matter và webhook dữ liệu ngoài.",
-    images: ["/images/nova-sync-one.png"]
+      "Có nên mua UBPet C41? Xem điểm mạnh, điểm cần cân nhắc, video review và thông số quan trọng.",
+    images: ["/images/ubpet-c41/ubpet-c41-hero.png"]
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f5f0",
+  themeColor: "#f4f7f4",
   colorScheme: "light"
 };
 

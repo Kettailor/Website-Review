@@ -1,6 +1,6 @@
-# NovaSync One Landing Page
+# UBPet C41 Review Landing Page
 
-Landing page Next.js cho sản phẩm công nghệ NovaSync One, gồm hero, tính năng nổi bật, thông số kỹ thuật, form đăng ký nhận tin và API route có khả năng đồng bộ dữ liệu ra webhook bên ngoài.
+Landing page Next.js review sản phẩm **máy dọn vệ sinh mèo UBPet C41**, dùng asset từ Helipet, thumbnail video review liên quan và phần tổng hợp đánh giá theo các tiêu chí phổ biến trên web cho nhóm máy dọn vệ sinh tự động.
 
 ## Chạy local
 
@@ -21,18 +21,19 @@ NEWSLETTER_WEBHOOK_URL=https://example.com/webhook
 NEWSLETTER_WEBHOOK_TOKEN=optional-token
 ```
 
-Form đăng ký gửi POST đến `/api/newsletter`. Nếu `NEWSLETTER_WEBHOOK_URL` được cấu hình, API route sẽ forward lead sang webhook với bearer token tùy chọn.
+Form checklist gửi POST đến `/api/newsletter`. Nếu `NEWSLETTER_WEBHOOK_URL` được cấu hình, API route sẽ forward lead sang webhook với bearer token tùy chọn.
 
 ## SEO và hiệu năng
 
 - Metadata có Title, Description, Open Graph và Twitter Card trong `app/layout.tsx`.
-- Hero image dùng `next/image`, `priority`, responsive `sizes` và định dạng AVIF/WebP qua Next Image Optimization.
-- Không dùng SDK UI, icon pack hay webfont bên thứ ba trên client.
-- Chỉ component form là client component; các section còn lại render phía server.
+- Product structured data nằm trong `app/page.tsx`.
+- Ảnh dùng `next/image`, asset local trong `public/images/ubpet-c41`.
+- Video review dùng thumbnail mở YouTube thay vì nhúng iframe mặc định để giữ trang nhẹ.
+- Chỉ form là client component; các section review còn lại render phía server.
 
 ## Deploy lên Vercel
 
-1. Push branch `codex/smart-product-landing` lên GitHub.
+1. Push branch hiện tại lên GitHub.
 2. Import repository trong Vercel.
 3. Chọn framework preset `Next.js`.
 4. Thêm env vars nếu cần webhook.
