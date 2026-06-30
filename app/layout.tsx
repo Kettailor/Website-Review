@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     siteName: "UBPet C41 Review",
     images: [
       {
-        url: "/images/ubpet-c41/ubpet-c41-hero.png",
-        width: 840,
-        height: 840,
+        url: "/images/ubpet-c41/ubpet-c41-hero-custom.png",
+        width: 1600,
+        height: 1600,
         alt: "Máy dọn vệ sinh mèo UBPet C41"
       }
     ],
@@ -33,13 +33,16 @@ export const metadata: Metadata = {
     title: "Review máy dọn vệ sinh mèo UBPet C41",
     description:
       "Có nên mua UBPet C41? Xem điểm mạnh, điểm cần cân nhắc, video review và thông số quan trọng.",
-    images: ["/images/ubpet-c41/ubpet-c41-hero.png"]
+    images: ["/images/ubpet-c41/ubpet-c41-hero-custom.png"]
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f7f4",
-  colorScheme: "light"
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#edf8f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#081511" }
+  ],
+  colorScheme: "light dark"
 };
 
 export default function RootLayout({
@@ -48,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" data-lang="vi" data-theme="light" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
