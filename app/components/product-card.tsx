@@ -53,24 +53,24 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
         <p className="product-card-desc">
           {lang === "vi" ? product.descriptionVi : product.descriptionEn}
         </p>
-        <div className="product-card-footer">
+        <div className="product-card-price-row">
           <span className="product-card-price">{formatCurrency(product.price)}</span>
-          <div className="product-card-buttons">
-            <button
-              type="button"
-              className="button button-secondary card-view-details-btn"
-              onClick={() => onViewDetails(product)}
-            >
-              {lang === "vi" ? "Chi tiết" : "Details"}
-            </button>
-            <button
-              type="button"
-              className="button button-primary card-add-to-cart-btn"
-              onClick={() => addToCart(product)}
-            >
-              {lang === "vi" ? "Thêm giỏ" : "+ Cart"}
-            </button>
-          </div>
+        </div>
+        <div className="product-card-actions-row">
+          <button
+            type="button"
+            className="button button-secondary card-view-details-btn"
+            onClick={() => onViewDetails(product)}
+          >
+            {lang === "vi" ? "Chi tiết" : "Details"}
+          </button>
+          <button
+            type="button"
+            className="button button-primary card-add-to-cart-btn"
+            onClick={() => addToCart(product)}
+          >
+            {lang === "vi" ? "Thêm giỏ" : "+ Cart"}
+          </button>
         </div>
       </div>
     </article>

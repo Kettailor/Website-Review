@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import { AppProvider } from "./components/providers";
 import { ToastContainer } from "./components/toast";
 import { BehaviorTracker } from "./components/behavior-tracker";
@@ -7,10 +7,10 @@ import { CartDrawer } from "./components/cart-drawer";
 import { Chatbot } from "./components/chatbot";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-plus-jakarta",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap"
 });
 
@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" data-lang="vi" data-theme="light" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="vi" data-lang="vi" data-theme="light" className={`${plusJakartaSans.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="antialiased">
         <AppProvider>
           {children}

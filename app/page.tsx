@@ -341,14 +341,16 @@ export default function Home() {
       {/* Verdict grid */}
       <section id="verdict" className="section verdict-section">
         <div className="section-heading reveal">
-          <p className="kicker"><Text vi="Kết luận nhanh" en="Quick verdict" /></p>
-          <h2>
-            <Text
-              vi="Đáng mua nếu bạn muốn một máy rộng, an toàn và có app theo dõi."
-              en="Worth it if you want a roomy, sensor-focused box with app tracking."
-            />
-          </h2>
-          <p>
+          <div className="heading-title-group">
+            <p className="kicker"><Text vi="Kết luận nhanh" en="Quick verdict" /></p>
+            <h2>
+              <Text
+                vi="Đáng mua nếu bạn muốn một máy rộng, an toàn và có app theo dõi."
+                en="Worth it if you want a roomy, sensor-focused box with app tracking."
+              />
+            </h2>
+          </div>
+          <p className="section-desc-paragraph">
             <Text
               vi="Điểm mạnh của UBPet C41 nằm ở cabin rộng, cửa vào thấp và bộ cảm biến. Điểm cần cân nhắc là máy vẫn cần đúng loại cát, đúng vị trí đặt, và mèo cần thời gian làm quen như mọi máy dọn tự động khác."
               en="UBPet C41 stands out with a large cabin, low entry and layered safety sensors. The trade-offs are the usual ones: proper litter, proper placement and a gradual introduction for your cat."
@@ -497,14 +499,16 @@ export default function Home() {
       {/* Review signals */}
       <section className="section signals-section">
         <div className="section-heading reveal">
-          <p className="kicker"><Text vi="Tổng hợp đánh giá trên web" en="Review signals across the web" /></p>
-          <h2>
-            <Text
-              vi="Những điểm cần soi khi mua máy dọn vệ sinh tự động."
-              en="What to inspect before buying an automatic litter box."
-            />
-          </h2>
-          <p>
+          <div className="heading-title-group">
+            <p className="kicker"><Text vi="Tổng hợp đánh giá trên web" en="Review signals across the web" /></p>
+            <h2>
+              <Text
+                vi="Những điểm cần soi khi mua máy dọn vệ sinh tự động."
+                en="What to inspect before buying an automatic litter box."
+              />
+            </h2>
+          </div>
+          <p className="section-desc-paragraph">
             <Text
               vi="Review độc lập cho đúng mã C41 hiện không nhiều. Vì vậy phần này đối chiếu C41 với các tiêu chí lặp lại trong những bài test máy dọn vệ sinh tự động phổ biến: an toàn, mùi, kích thước, loại cát và app."
               en="Independent reviews for this exact C41 model are still limited. This section compares C41 against recurring criteria from popular automatic litter box tests: safety, odor, size, litter compatibility and app value."
