@@ -180,7 +180,7 @@ const structuredData = {
     "@type": "Brand",
     name: "UBPet"
   },
-  image: `${siteUrl}/images/ubpet-c41/ubpet-c41-hero-custom.png`,
+  image: `${siteUrl}/images/ubpet-c41/ubpet-c41-hero-cutout.png`,
   description:
     "Review máy dọn vệ sinh mèo UBPet C41 với cabin 106L, app UBPET-ASIA, nhiều lớp cảm biến an toàn và hộp chất thải 6.7L.",
   offers: {
@@ -273,7 +273,7 @@ export default function Home() {
           <div className="orbit orbit-two" aria-hidden="true" />
           <div className="price-pill">9.450.000đ</div>
           <Image
-            src="/images/ubpet-c41/ubpet-c41-hero-custom.png"
+            src="/images/ubpet-c41/ubpet-c41-hero-cutout.png"
             alt="Máy dọn vệ sinh mèo UBPet C41 với ba mèo bên trong"
             width={1600}
             height={1600}

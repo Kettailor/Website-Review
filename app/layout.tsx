@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "UBPet C41 Review",
     images: [
       {
-        url: "/images/ubpet-c41/ubpet-c41-hero-custom.png",
+        url: "/images/ubpet-c41/ubpet-c41-hero-cutout.png",
         width: 1600,
         height: 1600,
         alt: "Máy dọn vệ sinh mèo UBPet C41"
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Review máy dọn vệ sinh mèo UBPet C41",
     description:
       "Có nên mua UBPet C41? Xem điểm mạnh, điểm cần cân nhắc, video review và thông số quan trọng.",
-    images: ["/images/ubpet-c41/ubpet-c41-hero-custom.png"]
+    images: ["/images/ubpet-c41/ubpet-c41-hero-cutout.png"]
   }
 };
 
