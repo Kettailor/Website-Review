@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AppProvider } from "./components/providers";
 import { ToastContainer } from "./components/toast";
 import { BehaviorTracker } from "./components/behavior-tracker";
@@ -79,6 +80,7 @@ export default function RootLayout({
           <ToastContainer />
           <BehaviorTracker />
         </AppProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
