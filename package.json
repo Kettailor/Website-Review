@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Next.js landing page reviewing the UBPet C41 automatic cat litter box with Vietnamese SEO content, product details, lead capture, and chatbot support.",
   "private": true,
+  "license": "MIT",
   "homepage": "https://github.com/Kettailor/Website-Review#readme",
   "repository": {
     "type": "git",
