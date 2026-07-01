@@ -838,8 +838,7 @@ html[data-theme="dark"] .review-marquee {
   gap: 0.48rem;
 }
 
-.newsletter-form input,
-.newsletter-form select {
+.newsletter-form input {
   background: var(--field);
   border: 1px solid transparent;
   border-radius: var(--radius);
@@ -847,6 +846,21 @@ html[data-theme="dark"] .review-marquee {
   min-height: 48px;
   padding: 0.8rem 0.9rem;
   width: 100%;
+}
+
+.newsletter-form select {
+  background: var(--field) !important;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--ink) !important;
+  min-height: 48px;
+  padding: 0.8rem 0.9rem;
+  width: 100%;
+}
+
+.newsletter-form select option {
+  background-color: var(--surface) !important;
+  color: var(--ink) !important;
 }
 
 .newsletter-form input:focus,
