@@ -218,6 +218,7 @@ const structuredData = {
 export default function Home() {
   const { lang, recentlyViewed } = useApp();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   // Sync scroll progress indicator bar width
   useEffect(() => {
@@ -399,14 +400,28 @@ export default function Home() {
       {/* Video review */}
       <section id="video" className="section video-section">
         <div className="video-card reveal">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/jzJkz0DbwTs?rel=0&modestbranding=1"
-            title="UBPet C41 review video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            loading="lazy"
-            allowFullScreen
-          />
+          {!isVideoPlaying ? (
+            <div 
+              className="video-facade" 
+              style={{ backgroundImage: "url('https://img.youtube.com/vi/jzJkz0DbwTs/maxresdefault.jpg')" }}
+              onClick={() => setIsVideoPlaying(true)}
+            >
+              <div className="video-facade-overlay" />
+              <button type="button" className="video-play-btn" aria-label="Play video">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" style={{ marginLeft: "4px" }}>
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/jzJkz0DbwTs?autoplay=1&rel=0&modestbranding=1&controls=1"
+              title="UBPet C41 review video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          )}
         </div>
         <div className="video-copy reveal">
           <p className="kicker"><Text vi="Video review phát ngay" en="Inline review video" /></p>

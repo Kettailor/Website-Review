@@ -23,7 +23,7 @@ function getLanguage() {
 
 export function NewsletterForm() {
   const [state, setState] = useState<FormState>("idle");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<React.ReactNode>("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -50,7 +50,11 @@ export function NewsletterForm() {
         body: JSON.stringify(payload)
       });
 
-      const result = (await response.json()) as { message?: string; messageEn?: string };
+      const result = (await response.json()) as { 
+        message?: string; 
+        messageEn?: string; 
+        previewUrl?: string | null; 
+      };
 
       if (!response.ok) {
         throw new Error(
@@ -61,11 +65,29 @@ export function NewsletterForm() {
       }
 
       setState("success");
-      setMessage(
-        language === "en"
-          ? result.messageEn ?? "Your request has been recorded."
-          : result.message ?? "Đã ghi nhận yêu cầu tư vấn của bạn."
-      );
+      
+      const successMsg = language === "en"
+        ? result.messageEn ?? "Your request has been recorded."
+        : result.message ?? "Đã ghi nhận yêu cầu tư vấn của bạn.";
+
+      if (result.previewUrl) {
+        setMessage(
+          <span>
+            {successMsg}{" "}
+            <a 
+              href={result.previewUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: "var(--mint)", textDecoration: "underline", fontWeight: "bold" }}
+            >
+              {language === "en" ? "Click here to view sent test email" : "Bấm vào đây để xem email phản hồi"}
+            </a>
+          </span>
+        );
+      } else {
+        setMessage(successMsg);
+      }
+
       form.reset();
     } catch (error) {
       setState("error");
