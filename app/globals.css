@@ -36,7 +36,7 @@ html[data-theme="dark"] {
   --card: rgba(26, 29, 32, 0.88);
   --header: rgba(18, 20, 22, 0.82);
   --glass: rgba(26, 29, 32, 0.74);
-  --field: rgba(234, 234, 234, 0.94);
+  --field: #22262a;
   --section-blue: #151b1e;
   --section-warm: #181b1d;
 }
