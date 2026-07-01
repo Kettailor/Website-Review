@@ -12,6 +12,7 @@ Landing page Next.js review sản phẩm **máy dọn vệ sinh mèo UBPet C41**
 - Form checklist gửi lead qua `/api/newsletter`, có thể forward sang webhook ngoài.
 - Chatbot tư vấn qua `/api/chat`.
 - Tracking hành vi cơ bản qua `/api/track`.
+- Vercel Web Analytics qua `@vercel/analytics`.
 - Asset ảnh local trong `public/images/ubpet-c41`.
 
 ## Công nghệ
@@ -20,6 +21,7 @@ Landing page Next.js review sản phẩm **máy dọn vệ sinh mèo UBPet C41**
 - React 19
 - TypeScript 6
 - Nodemailer cho luồng gửi/forward lead
+- Vercel Analytics cho page views trên production
 - GitHub Actions cho CI/CD
 - Vercel làm đích deploy khuyến nghị
 
