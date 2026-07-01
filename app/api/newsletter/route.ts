@@ -236,6 +236,60 @@ export async function POST(request: Request) {
   const webhookUrl = process.env.NEWSLETTER_WEBHOOK_URL;
   if (webhookUrl) {
     try {
+      let payload: any = newLead;
+
+      // Format webhook to rich embed if it is a Discord webhook
+      if (webhookUrl.includes("discord.com/api/webhooks/") || webhookUrl.includes("discordapp.com/api/webhooks/")) {
+        const interestMap: Record<string, string> = {
+          checklist: "Checklist chọn máy phù hợp / Pre-buy checklist",
+          compare: "So sánh các dòng máy / Compare models",
+          setup: "Tư vấn cát & vị trí lắp đặt / Setup advice"
+        };
+        const interestLabel = interestMap[interest] || interest;
+
+        payload = {
+          username: "UBPet Lead Bot",
+          avatar_url: "https://img.youtube.com/vi/jzJkz0DbwTs/maxresdefault.jpg",
+          embeds: [
+            {
+              title: "🎉 Khách hàng mới đăng ký tư vấn & nhận checklist!",
+              color: 13938487, // hex #d4af37 (Champagne Gold)
+              fields: [
+                {
+                  name: "👤 Họ và tên",
+                  value: name,
+                  inline: true
+                },
+                {
+                  name: "✉️ Email",
+                  value: email,
+                  inline: true
+                },
+                {
+                  name: "🎯 Nhu cầu tư vấn",
+                  value: interestLabel,
+                  inline: false
+                },
+                {
+                  name: "🌐 Ngôn ngữ hiển thị",
+                  value: language === "en" ? "Tiếng Anh (en)" : "Tiếng Việt (vi)",
+                  inline: true
+                },
+                {
+                  name: "🆔 Mã Lead ID",
+                  value: newLead.id,
+                  inline: true
+                }
+              ],
+              timestamp: newLead.createdAt,
+              footer: {
+                text: "Hệ thống UBPet C41 Review"
+              }
+            }
+          ]
+        };
+      }
+
       await fetch(webhookUrl, {
         method: "POST",
         headers: {
@@ -244,7 +298,7 @@ export async function POST(request: Request) {
             ? { Authorization: `Bearer ${process.env.NEWSLETTER_WEBHOOK_TOKEN}` }
             : {})
         },
-        body: JSON.stringify(newLead),
+        body: JSON.stringify(payload),
         cache: "no-store"
       });
     } catch (e) {
